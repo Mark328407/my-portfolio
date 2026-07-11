@@ -573,7 +573,7 @@ export default function App() {
             {[
               { label: "GitHub", href: "https://github.com/mark328407" },
               { label: "LinkedIn", href: "https://www.linkedin.com/in/mark-anthony-estrecho-ba0731225" },
-              { label: "Portfolio", href: "https://mark328407.github.io/WebPortfolio/#landing" },
+              { label: "Portfolio", href: "https://my-portfolio-cilr.vercel.app/" },
             ].map((link) => (
               <a
                 key={link.label}
