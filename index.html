@@ -6,6 +6,18 @@
     <title>Mark Anthony Estrecho — Full-Stack Developer</title>
     <meta name="description" content="Portfolio of Mark Anthony Estrecho, a Junior Full-Stack Developer (MEVN) based in Cavite, Philippines." />
     <style>html, body { height: 100%; margin: 0; } #root { height: 100%; }</style>
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('theme');
+          if (saved !== 'light') {
+            document.documentElement.classList.add('dark');
+          }
+        } catch (e) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
