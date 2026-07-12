@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, type ElementType } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 
 import headshot from "../assets/headshot.jpg";
@@ -9,7 +9,18 @@ import ecommerceStorefront from "../assets/projects/4_project.svg";
 import airlineBooking from "../assets/projects/5_project.svg";
 import airlineAdmin from "../assets/projects/6_project.svg";
 
-const projects = [
+type Project = {
+  id: string;
+  title: string;
+  category: string;
+  year: string;
+  tags: string[];
+  image: string;
+  alt: string;
+  link?: string;
+};
+
+const projects: Project[] = [
   {
     id: "01",
     title: "E-Commerce API",
@@ -18,6 +29,7 @@ const projects = [
     tags: ["Node.js", "Express", "MongoDB"],
     image: ecommerceApi,
     alt: "Illustration representing an e-commerce checkout REST API",
+    link: "https://github.com/Mark328407/E-Commerce-API",
   },
   {
     id: "02",
@@ -309,12 +321,19 @@ export default function App() {
           </div>
 
           <div className="space-y-0">
-            {projects.map((project, i) => (
-              <div
+            {projects.map((project, i) => {
+              const CardWrapper: ElementType = project.link ? "a" : "div";
+              const linkProps: Record<string, string> = project.link
+                ? { href: project.link, target: "_blank", rel: "noopener noreferrer" }
+                : {};
+
+              return (
+              <CardWrapper
                 key={project.id}
-                className="group border-t border-border last:border-b cursor-pointer"
+                className="group border-t border-border last:border-b cursor-pointer block"
                 onMouseEnter={() => setActiveProject(i)}
                 onMouseLeave={() => setActiveProject(null)}
+                {...linkProps}
               >
                 <div className="flex items-center justify-between py-6 md:py-8 gap-6">
                   <div className="flex items-center gap-6 md:gap-10 min-w-0">
@@ -368,8 +387,9 @@ export default function App() {
                     className="w-full h-72 object-cover"
                   />
                 </div>
-              </div>
-            ))}
+              </CardWrapper>
+              );
+            })}
           </div>
         </div>
       </section>
