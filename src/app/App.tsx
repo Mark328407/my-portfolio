@@ -225,6 +225,15 @@ export default function App() {
               {item}
             </button>
           ))}
+          <button
+            onClick={() => {
+              setMenuOpen(false);
+              scrollTo("contact");
+            }}
+            className="text-lg bg-primary text-primary-foreground px-6 py-3 hover:bg-primary/90 transition-colors duration-200 tracking-wide font-medium mt-4"
+          >
+            Hire Me
+          </button>
         </div>
       )}
 
