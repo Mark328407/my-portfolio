@@ -39,6 +39,7 @@ const projects: Project[] = [
     tags: ["Node.js", "Express", "MongoDB"],
     image: courseBookingApi,
     alt: "Illustration representing a course enrollment REST API",
+    link: "https://github.com/Mark328407/Course-Booking-API",
   },
   {
     id: "03",
