@@ -69,6 +69,7 @@ const projects: Project[] = [
     tags: ["Vue.js", "Bootstrap"],
     image: airlineBooking,
     alt: "Illustration representing a flight booking flow prototype",
+    link: "https://airline-booking-prototype.vercel.app/",
   },
   {
     id: "06",
