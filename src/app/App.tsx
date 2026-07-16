@@ -59,7 +59,7 @@ const projects: Project[] = [
     tags: ["React", "Node.js", "MongoDB"],
     image: ecommerceStorefront,
     alt: "Illustration representing an e-commerce storefront web app",
-    link: "https://e-commerce-storefront-eight.vercel.app/",
+    link: "https://github.com/Mark328407/E-CommerceStorefront",
   },
   {
     id: "05",
