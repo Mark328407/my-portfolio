@@ -79,6 +79,7 @@ const projects: Project[] = [
     tags: ["React", "Charts"],
     image: airlineAdmin,
     alt: "Illustration representing a flight admin dashboard prototype",
+    link: "https://github.com/Mark328407/Airline-Booking-Admin-Console",
   },
 ];
 
