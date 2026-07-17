@@ -69,7 +69,7 @@ const projects: Project[] = [
     tags: ["Vue.js", "Bootstrap"],
     image: airlineBooking,
     alt: "Illustration representing a flight booking flow prototype",
-    link: "https://github.com/Mark328407/Airline-Booking-Prototype",
+    link: "https://github.com/Mark328407/Airline-BookingPrototype",
   },
   {
     id: "06",
