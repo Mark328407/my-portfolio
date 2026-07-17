@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, type ElementType } from "react";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { ArrowUpRight, Menu, X, Sun, Moon } from "lucide-react";
 
 import headshot from "../assets/headshot.jpg";
 import ecommerceApi from "../assets/projects/1_project.svg";
@@ -111,6 +111,21 @@ const WEB3FORMS_ACCESS_KEY = "1e3de487-966a-4f57-9722-58cdfbc442d0";
 type FormStatus = "idle" | "sending" | "success" | "error";
 
 export default function App() {
+  const [theme, setTheme] = useState<"light" | "dark">(() => {
+    if (typeof window === "undefined") return "dark";
+    const saved = window.localStorage.getItem("theme");
+    if (saved === "light" || saved === "dark") return saved;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  });
+
+  useEffect(() => {
+    const root = document.documentElement;
+    root.classList.toggle("dark", theme === "dark");
+    window.localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeProject, setActiveProject] = useState<number | null>(null);
   const [statsVisible, setStatsVisible] = useState(false);
@@ -206,14 +221,30 @@ export default function App() {
           >
             Hire Me
           </button>
+          <button
+            onClick={toggleTheme}
+            className="text-foreground hover:text-primary transition-colors duration-200"
+            aria-label="Toggle dark mode"
+          >
+            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
         </div>
-        <button
-          className="md:hidden text-foreground"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          {menuOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
+        <div className="flex md:hidden items-center gap-4">
+          <button
+            onClick={toggleTheme}
+            className="text-foreground hover:text-primary transition-colors duration-200"
+            aria-label="Toggle dark mode"
+          >
+            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+          <button
+            className="text-foreground"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </nav>
 
       {/* MOBILE MENU */}
